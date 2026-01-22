@@ -1,17 +1,17 @@
-# SmartLoanAI – AI Powered Loan Approval System
+# SmartLoanAI – Loan Default & Approval Prediction using Machine Learning
 
 🚀 **Live Demo:** https://smartloanaiml.streamlit.app/
 
 SmartLoanAI is an end-to-end **machine learning–based credit decision system** that predicts whether a loan applicant should be approved or rejected using **Support Vector Machines (SVM)**.
 
-This project is built to simulate how real banks evaluate **credit risk** and make loan decisions.
+This project simulates how real banks evaluate **credit risk** and make data-driven loan decisions.
 
 ---
 
 ## 🧠 Problem Statement
 
-Banks lose money when loans are approved for risky customers who later default.  
-The goal of this project is to use historical applicant data to **predict loan approval** while minimizing financial risk.
+Banks face financial loss when high-risk applicants default on loans.  
+This project uses historical loan data to predict loan approval and minimize credit risk.
 
 This system helps:
 - Reduce bad loan approvals  
@@ -45,7 +45,18 @@ Missing values were handled and categorical variables were encoded before traini
 - Scikit-learn  
 - Streamlit  
 - GitHub  
-- SVM (Linear, Polynomial, RBF kernels)
+- Support Vector Machines (Linear, Polynomial, RBF)  
+
+---
+
+## 🔍 Exploratory Data Analysis (EDA)
+
+Exploratory data analysis was performed to understand feature distributions, detect missing values, and analyze relationships between applicant attributes and loan approval.
+
+**Key insights:**
+- Applicants with good credit history were significantly more likely to be approved  
+- Higher applicant income correlated with higher approval rates  
+- Property area and education also influenced approval probability  
 
 ---
 
@@ -75,6 +86,8 @@ Each model was evaluated using:
 | Polynomial | 83.7% | 17 | 3 |
 | RBF | 82.9% | **15 (Lowest)** | 6 |
 
+This highlights the importance of optimizing for **business risk** rather than raw accuracy.
+
 Although Linear had slightly higher accuracy, **RBF was chosen** because it approves **fewer risky customers**, which is critical in financial systems.
 
 ---
@@ -82,7 +95,7 @@ Although Linear had slightly higher accuracy, **RBF was chosen** because it appr
 ## 🌐 Web Application
 
 The trained models were deployed using **Streamlit**.  
-The app allows users to:
+The application allows users to:
 
 - Enter applicant details  
 - Choose SVM kernel (Linear / Polynomial / RBF)  
@@ -96,7 +109,7 @@ The app allows users to:
 
 ## 🧠 System Flow
 
-User Input → Preprocessing → SVM Model → Risk Scoring → Decision UI
+User Input → Data Preprocessing → SVM Model → Risk Scoring → Decision Interface
 
 ---
 
