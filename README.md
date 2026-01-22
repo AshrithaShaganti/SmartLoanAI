@@ -1,131 +1,109 @@
-**1. Problem Statement**
+# SmartLoanAI – AI Powered Loan Approval System
 
-Financial institutions face high risk when approving loans for applicants who may default.
-The goal of this project is to build a machine learning model that predicts whether a loan applicant is likely to default based on their financial and personal information.
+🚀 **Live Demo:** https://smartloanaiml.streamlit.app/
 
-This helps banks:
+SmartLoanAI is an end-to-end **machine learning–based credit decision system** that predicts whether a loan applicant should be approved or rejected using **Support Vector Machines (SVM)**.
 
-      Reduce credit risk
+This project is built to simulate how real banks evaluate **credit risk** and make loan decisions.
 
-      Improve approval accuracy
+---
 
-      Automate decision making
+## 🧠 Problem Statement
 
-**2. Dataset**
+Banks lose money when loans are approved for risky customers who later default.  
+The goal of this project is to use historical applicant data to **predict loan approval** while minimizing financial risk.
+
+This system helps:
+- Reduce bad loan approvals  
+- Improve credit screening accuracy  
+- Automate loan decisions  
+
+---
+
+## 📊 Dataset
 
 The dataset contains historical loan applicant records with features such as:
 
-      Income
+- Gender, Married, Dependents  
+- Education, Self-Employed  
+- Applicant Income, Co-Applicant Income  
+- Loan Amount, Loan Term  
+- Credit History  
+- Property Area  
 
-      Loan amount
+**Target Variable:**  
+`Loan_Status` → Approved (1) or Not Approved (0)
 
-      Credit history
+Missing values were handled and categorical variables were encoded before training.
 
-      Employment status
+---
 
-      Loan term
+## 🛠️ Tech Stack
 
-      Applicant details
+- Python  
+- Pandas, NumPy  
+- Scikit-learn  
+- Streamlit  
+- GitHub  
+- SVM (Linear, Polynomial, RBF kernels)
 
-Target variable:
+---
 
-      Loan_Status (Approved / Not Approved)
+## ⚙️ Machine Learning Approach
 
-The data was cleaned, missing values were handled, and categorical variables were encoded before modeling.
+Three SVM models were trained and compared:
 
-**3. Tools & Technologies**
+| Kernel | Description |
+|--------|-------------|
+| Linear | Works well for linearly separable data |
+| Polynomial | Captures polynomial relationships |
+| RBF | Captures complex non-linear patterns |
 
-Python
+Each model was evaluated using:
+- Accuracy  
+- Precision  
+- Recall  
+- Confusion Matrix  
 
-Pandas, NumPy
+---
 
-Scikit-learn
+## 📈 Model Comparison
 
-Matplotlib, Seaborn
+| Kernel | Accuracy | Risky Customers Approved | Eligible Customers Rejected |
+|--------|----------|--------------------------|-----------------------------|
+| Linear | 85.3% | 17 | 1 |
+| Polynomial | 83.7% | 17 | 3 |
+| RBF | 82.9% | **15 (Lowest)** | 6 |
 
-Streamlit
+Although Linear had slightly higher accuracy, **RBF was chosen** because it approves **fewer risky customers**, which is critical in financial systems.
 
-Git & GitHub
+---
 
-**4. Exploratory Data Analysis (EDA)**
+## 🌐 Web Application
 
-EDA was performed to:
+The trained models were deployed using **Streamlit**.  
+The app allows users to:
 
-    Identify missing values
+- Enter applicant details  
+- Choose SVM kernel (Linear / Polynomial / RBF)  
+- Get real-time loan decision  
+- View model confidence  
+- See risk level visualization  
 
-    Detect outliers
+🔗 **Live App:** https://smartloanaiml.streamlit.app/
 
-    Analyze feature distributions
+---
 
-    Understand correlations between variables and loan approval
+## 🧠 System Flow
 
-Key insights:
+User Input → Preprocessing → SVM Model → Risk Scoring → Decision UI
 
-  Credit history and applicant income had strong impact on loan approval
+---
 
-  Applicants with higher income and good credit were more likely to get approved
+## ▶️ Run Locally
 
-**5. Feature Engineering**
-
-The following preprocessing steps were applied:
-
-    Missing value imputation
-
-    Label encoding for categorical variables
-
-    Feature scaling where required
-
-These steps improved model stability and performance.
-
-**6. Machine Learning Models Used**
-
-The following models were trained and compared:
-
-    Logistic Regression
-
-    Random Forest Classifier
-
-    Model performance was evaluated using:
-
-    Accuracy
-
-    Precision
-  
-    Recall
-
-    Confusion Matrix
-
-The best performing model was selected for deployment.
-
-**7. Model Deployment**
-
-The trained model was deployed using Streamlit to create an interactive web application.
-Users can input applicant details and get real-time predictions on loan approval.
-
-Live App:
-http://smartloanaiml.streamlit.app/
-
-**8. Results**
-
-The final model was able to classify loan approval with good accuracy and reliability, helping simulate a real-world loan screening system.
-
-**9. How to Run Locally**
-
-git clone https://github.com/AshrithaShaganti/<repo-name>
-cd <repo-name>
+```bash
+git clone https://github.com/AshrithaShaganti/SmartLoanAI.git
+cd SmartLoanAI
 pip install -r requirements.txt
 streamlit run app.py
-
-**10. Conclusion**
-
-This project demonstrates an end-to-end machine learning workflow including:
-
-    Data cleaning
-
-    Exploratory data analysis
-
-    Model training and evaluation
-
-Deployment into a real-world web application
-
-It shows how machine learning can be used to solve real financial decision-making problems.
